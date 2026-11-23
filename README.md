@@ -1,12 +1,12 @@
 <p align="center"><img src="https://raw.githubusercontent.com/natuleadan/.github/main/profile/assets/banners/lyra.svg" alt="Lyra Constellation" width="100%" /></p>
 
 <h1 align="center">Lyra</h1>
-<p align="center"><strong>Sovereign pure-Rust multimodal sensory perception engine for audio, music, and acoustic streams</strong></p>
+<p align="center"><strong>Sovereign pure-Rust multimodal sensory perception engine for audio, music, video, and sensory streams</strong></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Language-Rust_2024-orange?style=flat" alt="Rust 2024" />
   <img src="https://img.shields.io/badge/Toolchain-Cargo_xtask-blue?style=flat" alt="Cargo xtask" />
-  <img src="https://img.shields.io/badge/Domain-Multimodal_Sensory_DSP-8B5CF6?style=flat" alt="Multimodal Sensory DSP" />
+  <img src="https://img.shields.io/badge/Domain-Multimodal_Sensory-8B5CF6?style=flat" alt="Multimodal Sensory" />
   <img src="https://img.shields.io/badge/Validation-8_Gates_Pass-green?style=flat" alt="8 Gates Pass" />
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat" alt="Apache 2.0 License" /></a>
   <a href="https://natuleadan.com"><img src="https://img.shields.io/badge/Organization-Natuleadan-orange.svg?style=flat" alt="Natuleadan" /></a>
@@ -14,26 +14,26 @@
 
 ## 1. What is Lyra?
 
-Lyra is a sovereign, pure-Rust **multimodal sensory perception engine** enabling autonomous agents to ingest audio, music, and continuous acoustic streams. Engineered with deterministic media and signal pipelines, zero Node.js or Python wrapper dependencies, and decoupled wire-protocol interfaces (REST, WebSocket/WSS, gRPC) with zero direct Cargo coupling to sibling constellations, Lyra transforms raw acoustic inputs into structured perception events across diverse devices.
+Lyra is a sovereign, pure-Rust **multimodal sensory perception engine** enabling autonomous agents to ingest audio, music, video, and continuous sensory streams modeled after human perception. Engineered with deterministic media and signal pipelines, zero Node.js or Python wrapper dependencies, and decoupled wire-protocol interfaces (REST, WebSocket/WSS, gRPC) with zero direct Cargo coupling to sibling constellations, Lyra transforms raw acoustic and visual inputs into structured agent events across diverse devices.
 
 ### What is inside
 
 Lyra implements a layered six-file modular domain layout (`entity`, `dto`, `repository`, `service`, `controller`, `mod`) atop a pure-Cargo workspace (`crates/core` and `crates/xtask`), governed by eight native validation gates and a 3-day dependency cooldown.
 
-> **Current scope:** This release ships the native validation harness, the six-file modular reference domain (`modules/math`), and the crate contracts. Transports, sandboxes, domain engines and protocol integrations described below are planned milestones, not shipped capabilities.
+> **Current scope:** This release ships the native validation harness, the six-file modular reference domain (`modules/math`), and the crate contracts. Transports, sandboxes, domain engines and protocol integrations described throughout this document are planned milestones, not shipped capabilities.
 
 ## 2. Why Lyra?
 
 Multimodal sensory perception for AI agents typically relies on fragile Python bindings and heavy native C++ media wrappers that break across platforms and lack strict boundary verification.
 
-- **Acoustic perception**: Enables agents to ingest audio and music streams deterministically in pure Rust.
+- **Human-like multimodal sensory perception**: Enables agents to ingest audio, music, video, and continuous sensory streams natively in pure Rust.
 - **100% Pure native Rust**: Zero Node.js, zero Python, and zero unverified package ecosystems.
-- **Strict layer isolation**: Media transport controllers, multimodal DSP services, and stream buffer repositories are decoupled by automated boundary tests.
+- **Strict layer isolation**: Media transport controllers, planned multimodal DSP services, and stream buffer repositories are decoupled by automated boundary tests.
 - **Zero formatter drift**: Formatters are excluded from hooks and CI so diffs remain focused on signal and media pipelines.
 
 ## 3. Highlights
 
-- **Deterministic acoustic contracts**: Typed PCM audio frames, spectral descriptors, and structured acoustic events.
+- **Deterministic multimodal media contracts**: Typed audio frames, video/image frames, spectral descriptors, and structured sensory events.
 - **Pure Cargo automation via `xtask`**: Native `cargo xtask validate`, `notices`, and `release` subcommands.
 - **Eight standardized validation gates**: Full verification across lint, typecheck, unit tests, architecture tripwires, cooldown, hygiene, notices, and SemVer checks.
 - **Supply-chain hardening**: Enforced 3-day dependency publish cooldown (`resolver.min-publish-age="3 days"`), CodeQL, and SBOM artifacts.
@@ -65,15 +65,15 @@ cargo test --workspace       # Execute unit, integration, and architecture tests
 
 ## 5. Use Cases
 
-- **Agent acoustic perception**: Allow Pulsar agents to ingest live audio and music streams deterministically.
-- **Acoustic and musical analysis**: Extract tempo, pitch contours, and spectral signatures natively in Rust.
+- **Agent multimodal perception**: Allow Pulsar agents to ingest live audio, music, video, and sensory streams deterministically.
+- **Acoustic, musical & visual analysis**: Extract tempo, pitch contours, spectral signatures, and frame-level visual cues natively in Rust.
 - **Cross-device sensory pipelines**: Run consistent multimodal stream processing across desktop workstations, Linux servers, and diverse edge hardware.
 
 ## 6. How It Works
 
 ```mermaid
 sequenceDiagram
-    participant Sensor as Audio Capture Hardware
+    participant Sensor as Audio / Video / Sensory Hardware
     participant Ctrl as Sensory Controller
     participant Svc as Multimodal Perception Service
     participant Repo as Stream Buffer Repository
@@ -88,13 +88,13 @@ sequenceDiagram
     Ctrl-->>Agent: sensoryPerceptionEvent
 ```
 
-Incoming audio and music frames enter through the `controller`, validate stream formats via `dto`, extract acoustic features inside `service`, and emit structured perception events over decoupled wire protocols (REST, WSS, gRPC).
+Incoming audio, music, video, and sensory frames enter through the `controller`, validate stream formats via `dto`, extract acoustic and visual features inside `service`, and emit structured perception events over decoupled wire protocols (REST, WSS, gRPC).
 
 ## 7. Status and Roadmap
 
 - **Status**: Initial foundation — validation harness and modular reference skeleton in place; domain implementation in progress.
-- **Milestone 1**: Core acoustic frame entities (PCM audio), format DTOs, and deterministic windowing traits.
-- **Milestone 2**: Spectral, pitch and rhythm feature extractors in pure Rust.
+- **Milestone 1**: Core multimodal frame entities (PCM audio, video frames), format DTOs, and deterministic windowing traits.
+- **Milestone 2**: Spectral, pitch, rhythm, and visual stream feature extractors in pure Rust.
 - **Milestone 3**: Decoupled wire-protocol (REST, WSS, gRPC) sensory integration with Pulsar and sibling constellations.
 
 ## 8. Repository Layout & Validation Gates
@@ -140,7 +140,7 @@ Incoming audio and music frames enter through the `controller`, validate stream 
 
 ## 10. Ecosystem & Community
 
-Lyra is the acoustic perception constellation of Natuleadan, communicating strictly over decoupled wire protocols (REST, WSS, gRPC) with Orion, Andromeda, Aurora, Pleaides, Pulsar, Caelum, and Skills.
+Lyra is the multimodal sensory perception constellation of Natuleadan, communicating strictly over decoupled wire protocols (REST, WSS, gRPC) with Orion, Andromeda, Aurora, Pleaides, Pulsar, Caelum, and Skills.
 
 <p align="left">
   <a href="https://github.com/natuleadan"><img src="https://avatars.githubusercontent.com/u/287601518?v=4&s=48" width="48" height="48" alt="natuleadan" title="natuleadan"/></a>
