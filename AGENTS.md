@@ -4,7 +4,7 @@ Technical operating rules for this Rust repository.
 
 ## 1. Repository Scope
 
-- Audio, music and acoustic perception engine (`lyra-core`).
+- Multimodal sensory perception engine for audio, music, video, and sensory streams (`lyra-core`).
 - Pure-Cargo workspace (`crates/core` library + `crates/xtask` automation runner); no Node.js or Python runtime tooling (`package.json`, `pnpm-lock.yaml`, `husky`, `.prettierrc` are forbidden).
 
 ## 2. Toolchain & Validation
